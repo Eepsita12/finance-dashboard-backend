@@ -4,7 +4,11 @@ A RESTful backend API for a finance dashboard built with **Node.js** and **Expre
 
 ---
 
-## Steps to Run the project
+## Overview
+
+This project implements a backend system for managing financial records with role-based access control. It demonstrates API design, data handling, and business logic for a finance dashboard.
+
+## Setup & Run
 
 ### 1. Install dependencies
 
@@ -154,9 +158,27 @@ finance-dashboard-backend/
 
 ---
 
+## Design Decisions
+
+- Used in-memory storage to keep the implementation simple and focus on API design and logic
+- Implemented role-based access using middleware for clear separation of concerns
+- Role-based access control ensures secure and controlled interaction with financial data based on user responsibilities
+
+## Validation & Error Handling
+
+- Ensures required fields like `amount`, `type`, and `category` are provided
+- Returns appropriate HTTP status codes:
+  - 400 for invalid input
+  - 403 for unauthorized access
+  - 404 for not found resources
+    
 ## Notes
 
 - All data is **in-memory** — it resets when the server restarts.
 - No authentication is implemented; role is mocked via the `x-user-role` header.
 - `status` field on users defaults to `active` if not provided.
 - `note` field on records is optional.
+
+## Author
+Eepsita Modi
+
